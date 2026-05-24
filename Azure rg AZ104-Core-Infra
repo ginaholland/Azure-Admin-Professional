@@ -1,0 +1,95 @@
+ cat azuredeploy.json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualNetworks_VNet_Management_name": {
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2025-05-01",
+      "location": "eastus",
+      "name": "[parameters('virtualNetworks_VNet_Management_name')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.10.0.0/16"
+          ]
+        },
+        "enableDdosProtection": false,
+        "encryption": {
+          "enabled": false,
+          "enforcement": "AllowUnencrypted"
+        },
+        "privateEndpointVNetPolicies": "Disabled",
+        "subnets": [
+          {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet_Management_name'), 'Tools')]",
+            "name": "Tools",
+            "properties": {
+              "addressPrefixes": [
+                "10.10.0.0/24"
+              ],
+              "defaultOutboundAccess": false,
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          },
+          {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_VNet_Management_name'), 'WebSubnet')]",
+            "name": "WebSubnet",
+            "properties": {
+              "addressPrefix": "10.10.2.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": []
+      },
+      "tags": {
+        "environment": "lab"
+      },
+      "type": "Microsoft.Network/virtualNetworks"
+    },
+    {
+      "apiVersion": "2025-05-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_VNet_Management_name'))]"
+      ],
+      "name": "[concat(parameters('virtualNetworks_VNet_Management_name'), '/Tools')]",
+      "properties": {
+        "addressPrefixes": [
+          "10.10.0.0/24"
+        ],
+        "defaultOutboundAccess": false,
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      },
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    },
+    {
+      "apiVersion": "2025-05-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_VNet_Management_name'))]"
+      ],
+      "name": "[concat(parameters('virtualNetworks_VNet_Management_name'), '/WebSubnet')]",
+      "properties": {
+        "addressPrefix": "10.10.2.0/24",
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      },
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    }
+  ],
+  "variables": {}
+}
+regina [ ~ ]$ 
