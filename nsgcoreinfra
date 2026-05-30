@@ -1,0 +1,21 @@
+regina [ ~ ]$ az network vnet subnet update \
+> -g AZ104-Core-Infra \
+> --vnet-name VNet-Management \
+> -n WebSubnet \
+> --network-security-group Web-NSG
+{
+  "addressPrefix": "10.10.2.0/24",
+  "delegations": [],
+  "etag": "W/\"f445fa94-b939-41a6-acd8-717e9387df6a\"",
+  "id": "/subscriptions/3a7164e4-dfd7-4560-8356-a74b61374a97/resourceGroups/AZ104-Core-Infra/providers/Microsoft.Network/virtualNetworks/VNet-Management/subnets/WebSubnet",
+  "name": "WebSubnet",
+  "networkSecurityGroup": {
+    "id": "/subscriptions/3a7164e4-dfd7-4560-8356-a74b61374a97/resourceGroups/AZ104-Core-Infra/providers/Microsoft.Network/networkSecurityGroups/Web-NSG",
+    "resourceGroup": "AZ104-Core-Infra"
+  },
+  "privateEndpointNetworkPolicies": "Disabled",
+  "privateLinkServiceNetworkPolicies": "Enabled",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "AZ104-Core-Infra",
+  "type": "Microsoft.Network/virtualNetworks/subnets"
+}
