@@ -1,0 +1,52 @@
+Connecting terminal...
+
+Welcome to Azure Cloud Shell
+
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
+
+Your Cloud Shell session will be ephemeral so no files or system changes will persist beyond your current session.
+regina [ ~ ]$ az ad user create \
+> --display-name "Jordan Cloud" \
+> --user-principal-name "jordan@ginaholland1968gmail915.onmicrosoft.com" \
+> --password "CorrectHorseBatteryStaple2026!" \
+> --force-change-password true
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": [],
+  "displayName": "Jordan Cloud",
+  "givenName": null,
+  "id": "13a60504-ad88-4ea8-9ade-907988d5be14",
+  "jobTitle": null,
+  "mail": null,
+  "mobilePhone": null,
+  "officeLocation": null,
+  "preferredLanguage": null,
+  "surname": null,
+  "userPrincipalName": "jordan@ginaholland1968gmail915.onmicrosoft.com"
+}
+regina [ ~ ]$ az ad user show --"jordan@ginaholland1968gmail915.onmicrosoft.com" 
+the following arguments are required: --id
+
+Examples from command's help:
+az ad user show --id myuser@contoso.com
+Show a user.
+
+https://aka.ms/cli_ref
+Read more about the command in reference docs
+regina [ ~ ]$ az ad user show --id "jordan@ginaholland968gmail915.onmicrosoft.com"
+Resource 'jordan@ginaholland968gmail915.onmicrosoft.com' does not exist or one of its queried reference-property objects are not present.
+regina [ ~ ]$ az ad user show --id "jordan@ginaholland1968gmail915.onmicrosoft.com"
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": [],
+  "displayName": "Jordan Cloud",
+  "givenName": null,
+  "id": "13a60504-ad88-4ea8-9ade-907988d5be14",
+  "jobTitle": null,
+  "mail": null,
+  "mobilePhone": null,
+  "officeLocation": null,
+  "preferredLanguage": null,
+  "surname": null,
+  "userPrincipalName": "jordan@ginaholland1968gmail915.onmicrosoft.com"
