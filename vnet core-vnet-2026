@@ -1,0 +1,30 @@
+regina [ ~ ]$ az network vnet create \
+> -g AZ104-Core-Infra \
+> -n core-vnet-2026 \
+> --address-prefix 10.0.0.0/16 \
+> --tags Environment=Lab
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"065d9f34-f97b-4be0-851e-f1bde35b53c4\"",
+    "id": "/subscriptions/3a7164e4-dfd7-4560-8356-a74b61374a97/resourceGroups/AZ104-Core-Infra/providers/Microsoft.Network/virtualNetworks/core-vnet-2026",
+    "location": "eastus",
+    "name": "core-vnet-2026",
+    "privateEndpointVNetPolicies": "Disabled",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "AZ104-Core-Infra",
+    "resourceGuid": "9bb20313-188f-4214-999b-293212b455a2",
+    "subnets": [],
+    "tags": {
+      "Environment": "Lab"
+    },
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+regina [ ~ ]$ 
