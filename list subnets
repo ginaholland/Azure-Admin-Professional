@@ -1,0 +1,17 @@
+ az network vnet subnet list \
+> -g AZ104-Core-Infra \
+> --vnet-name core-vnet-2026
+[
+  {
+    "addressPrefix": "10.0.1.0/24",
+    "delegations": [],
+    "etag": "W/\"a73da4cd-a0b7-45b7-99d2-e8f8ca3101c2\"",
+    "id": "/subscriptions/3a7164e4-dfd7-4560-8356-a74b61374a97/resourceGroups/AZ104-Core-Infra/providers/Microsoft.Network/virtualNetworks/core-vnet-2026/subnets/web-subnet",
+    "name": "web-subnet",
+    "privateEndpointNetworkPolicies": "Disabled",
+    "privateLinkServiceNetworkPolicies": "Enabled",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "AZ104-Core-Infra",
+    "type": "Microsoft.Network/virtualNetworks/subnets"
+  }
+]
