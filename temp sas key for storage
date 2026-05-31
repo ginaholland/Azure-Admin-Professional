@@ -1,0 +1,10 @@
+ az storage container generate-sas --account-name ginastorage2026 -n vendor-drop-box --permissions w --expiry 2026-06-01T23:59:00Z --https-only
+
+There are no credentials provided in your command and environment, we will query for account key for your storage account.
+It is recommended to provide --connection-string, --account-key or --sas-token in your command as credentials.
+
+You also can add `--auth-mode login` in your command to use Azure Active Directory (Azure AD) for authorization if your login account is assigned required RBAC roles.
+For more information about RBAC roles in storage, visit https://learn.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli.
+
+In addition, setting the corresponding environment variables can avoid inputting credentials in your command. Please use --help to get more information about environment variable usage.
+"se=2026-06-01T23%3A59%3A00Z&sp=w&spr=https&sv=2026-04-06&sr=c&sig=J2mukA5u0XdFGAN%2BFa68kct0pa1QpauJdsZWlYD/weQ%3D"
