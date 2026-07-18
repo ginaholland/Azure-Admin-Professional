@@ -1,0 +1,16 @@
+az lock create \
+> --name protect-core-vnet \
+> --lock-type CanNotDelete \
+> --resource-group AZ104-Core-Infra \
+> --resource-name core-vnet-2026 \
+> --resource-type Microsoft.Network/virtualNetworks 
+
+{
+  "id": "/subscriptions/3a7164e4-dfd7-4560-8356-a74b61374a97/resourcegroups/AZ104-Core-Infra/providers/Microsoft.Network/virtualNetworks/core-vnet-2026/providers/Microsoft.Authorization/locks/protect-core-vnet",
+  "level": "CanNotDelete",
+  "name": "protect-core-vnet",
+  "notes": null,
+  "owners": null,
+  "resourceGroup": "AZ104-Core-Infra",
+  "type": "Microsoft.Authorization/locks"
+}
